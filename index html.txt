@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eulogy Writing Guide</title>
+  
+  <!-- This script brings in Tailwind CSS for beautiful styling automatically -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- This script brings in the Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* A little custom CSS to make transitions smooth */
+    .step-section { display: none; }
+    .step-section.active { display: block; animation: fadeIn 0.4s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-serif min-h-screen p-4 md:p-8">
+
+  <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-sm border border-stone-200">
+    
+    <!-- Header -->
+    <header class="mb-8 border-b border-stone-200 pb-6">
+      <div class="flex items-center gap-3 mb-2">
+        <i data-lucide="book-open" class="w-6 h-6 text-stone-500"></i>
+        <h1 class="text-3xl font-bold text-stone-900">Eulogy Writing Guide</h1>
+      </div>
+      <p class="text-stone-600 italic">When your mind is foggy and your heart is heavy, let your body remember.</p>
+    </header>
+
+    <!-- Progress Indicator -->
+    <p id="step-indicator" class="text-sm font-sans font-semibold tracking-wider text-stone-400 uppercase mb-6">Step 1 of 4</p>
+
+    <!-- STEP 1: Somatic Memory -->
+    <section id="step-1" class="step-section active">
+      <h2 class="text-2xl font-bold mb-4">Start with Your Body: Somatic Memory</h2>
+      <p class="mb-6 text-stone-600 leading-relaxed">Your cognitive memory is foggy right now. But your body remembers. Think of 5 objects they used. Focus on the weight, the smell, the texture.</p>
+      
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold text-stone-700 mb-1">First object (key ring, wallet, pen, etc.)</label>
+          <input type="text" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'The weight of their key ring.'">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-stone-700 mb-1">Second object</label>
+          <input type="text" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'The smell of their favorite jacket.'">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-stone-700 mb-1">Third object</label>
+          <input type="text" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'The texture of their gardening gloves.'">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-stone-700 mb-1">Fourth object</label>
+          <input type="text" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'The sound of their heavy boots.'">
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-stone-700 mb-1">Fifth object</label>
+          <input type="text" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'The cold edge of their glasses frames.'">
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2: Ethical Edits -->
+    <section id="step-2" class="step-section">
+      <h2 class="text-2xl font-bold mb-4">The Ethical Edits</h2>
+      <p class="mb-6 text-stone-600 leading-relaxed">Select any sensitive topics that apply. This guide will help you honor their truth without compromising privacy or causing unnecessary harm.</p>
+      
+      <div class="space-y-4" id="ethical-edits-container">
+        <!-- JavaScript will inject the edit options here -->
+      </div>
+    </section>
+
+    <!-- STEP 3: Disenfranchised Grief -->
+    <section id="step-3" class="step-section">
+      <h2 class="text-2xl font-bold mb-4">Acknowledge the Unseen</h2>
+      <p class="mb-6 text-stone-600 leading-relaxed">Are there people or communities who loved them, but might be overlooked by the traditional family structure?</p>
+      
+      <textarea rows="5" class="w-full border border-stone-300 rounded-lg p-4 focus:ring-2 focus:ring-stone-400 outline-none font-sans" placeholder="e.g., 'Their chosen family, their online community, their estranged friends...'"></textarea>
+    </section>
+
+    <!-- STEP 4: Final Draft -->
+    <section id="step-4" class="step-section">
+      <div class="text-center py-8">
+        <i data-lucide="heart" class="w-12 h-12 text-rose-800 mx-auto mb-4"></i>
+        <h2 class="text-3xl font-bold mb-4">You have what you need.</h2>
+        <p class="text-stone-600 leading-relaxed mb-8">You don't have to write this perfectly. You don't have to say everything. You just have to speak from the body and honor the complexity of the life lived.</p>
+        
+        <button onclick="window.print()" class="bg-stone-800 hover:bg-stone-900 text-white font-sans font-bold py-3 px-6 rounded-lg shadow-sm transition-colors flex items-center justify-center gap-2 mx-auto">
+          Print Your Notes
+        </button>
+      </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="mt-10 flex justify-between items-center border-t border-stone-200 pt-6">
+      <button id="btn-back" class="text-stone-500 hover:text-stone-800 font-sans font-semibold flex items-center gap-1 transition-colors invisible">
+        <i data-lucide="chevron-left" class="w-5 h-5"></i> Back
+      </button>
+      <button id="btn-next" class="bg-stone-800 hover:bg-stone-900 text-white font-sans font-semibold py-2 px-6 rounded-lg shadow-sm transition-colors flex items-center gap-1">
+        Next <i data-lucide="chevron-right" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Footer Note -->
+    <p id="footer-note" class="mt-8 text-sm text-stone-500 text-center italic">Remember: You don't have to write this perfectly. You don't have to say everything.</p>
+
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // The logic to handle the steps
+    let currentStep = 1;
+    const totalSteps = 4;
+    
+    const sections = document.querySelectorAll('.step-section');
+    const btnNext = document.getElementById('btn-next');
+    const btnBack = document.getElementById('btn-back');
+    const stepIndicator = document.getElementById('step-indicator');
+    const footerNote = document.getElementById('footer-note');
+
+    // The Ethical Edit Options from your React Code
+    const editOptions = [
+      { 
+        title: 'Struggle with mental health', 
+        included: "They had depths I didn't fully understand.", 
+        excluded: "Don't mention specific diagnoses or private suffering." 
+      },
+      { 
+        title: 'Addiction or substance use', 
+        included: "They were fighting something hard that I wish I could have fixed.", 
+        excluded: "Don't list specifics or suggest they caused their death." 
+      },
+      { 
+        title: 'Estrangement from family', 
+        included: "They had relationships that mattered deeply to them, some visible, some private.", 
+        excluded: "Don't explain the family conflict in detail." 
+      },
+      { 
+        title: 'LGBTQ+ identity (if not publicly known)', 
+        included: "They loved deeply and authentically.", 
+        excluded: "Don't out someone if the family isn't ready." 
+      },
+      { 
+        title: 'Financial struggles', 
+        included: "They worked hard in ways most people never knew.", 
+        excluded: "Don't air specific financial details." 
+      }
+    ];
+
+    // Build the Ethical Edits step dynamically
+    const editsContainer = document.getElementById('ethical-edits-container');
+    editOptions.forEach((option, index) => {
+      const card = document.createElement('div');
+      card.className = "p-4 border border-stone-200 rounded-lg hover:border-stone-400 transition-colors cursor-pointer bg-white group";
+      card.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-bold text-stone-900 group-hover:text-stone-700">${option.title}</h3>
+          <input type="checkbox" class="w-5 h-5 accent-stone-800 cursor-pointer">
+        </div>
+        <div class="text-sm space-y-2 mt-3 pl-2 border-l-2 border-stone-200 text-stone-600">
+          <p><span class="font-bold text-emerald-700">Instead of:</span> ${option.excluded}</p>
+          <p><span class="font-bold text-stone-800">Try saying:</span> "${option.included}"</p>
+        </div>
+      `;
+      // Allow clicking anywhere on the card to toggle the checkbox
+      card.addEventListener('click', (e) => {
+        if(e.target.tagName !== 'INPUT') {
+          const checkbox = card.querySelector('input');
+          checkbox.checked = !checkbox.checked;
+        }
+      });
+      editsContainer.appendChild(card);
+    });
+
+    // Navigation Logic
+    function updateUI() {
+      // Show correct section
+      sections.forEach((sec, idx) => {
+        if (idx + 1 === currentStep) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+
+      // Update Header Text
+      stepIndicator.textContent = `Step ${currentStep} of ${totalSteps}`;
+
+      // Update Buttons
+      btnBack.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
+      
+      if (currentStep === totalSteps) {
+        btnNext.style.display = 'none';
+        stepIndicator.style.display = 'none';
+        footerNote.style.display = 'none';
+      } else {
+        btnNext.style.display = 'flex';
+        stepIndicator.style.display = 'block';
+        footerNote.style.display = 'block';
+      }
+    }
+
+    btnNext.addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateUI();
+      }
+    });
+
+    btnBack.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateUI();
+      }
+    });
+  </script>
+</body>
+</html>
